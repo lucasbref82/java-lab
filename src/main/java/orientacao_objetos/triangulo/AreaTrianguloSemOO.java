@@ -1,4 +1,4 @@
-package orientacao_objetos;
+package orientacao_objetos.triangulo;
 
 import java.util.Locale;
 import java.util.Scanner;
