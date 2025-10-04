@@ -13,9 +13,10 @@ public class NotaAlunos {
         List<Double> notas = new ArrayList<>();
         try (Scanner scanner = new Scanner(System.in)) {
             String nome = scanner.nextLine();
-            notas.add(scanner.nextDouble());
-            notas.add(scanner.nextDouble());
-            notas.add(scanner.nextDouble());
+            double n1 = scanner.nextDouble();
+            double n2 = scanner.nextDouble();
+            double n3 = scanner.nextDouble();
+            notas.addAll(List.of(n1, n2, n3));
             Aluno aluno = new Aluno(nome, notas);
             System.out.println(aluno.printaNotaFinal());
         } catch (Exception e) {
