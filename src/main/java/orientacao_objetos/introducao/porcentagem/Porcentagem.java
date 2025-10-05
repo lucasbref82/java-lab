@@ -1,6 +1,6 @@
-package orientacao_objetos.porcentagem;
+package orientacao_objetos.introducao.porcentagem;
 
-import orientacao_objetos.model.Funcionario;
+import orientacao_objetos.introducao.model.Funcionario;
 
 import java.util.Locale;
 import java.util.Scanner;

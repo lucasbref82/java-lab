@@ -1,6 +1,6 @@
-package orientacao_objetos.retangulo;
+package orientacao_objetos.introducao.retangulo;
 
-import orientacao_objetos.model.Retangulo;
+import orientacao_objetos.introducao.model.Retangulo;
 
 import java.util.Locale;
 import java.util.Scanner;

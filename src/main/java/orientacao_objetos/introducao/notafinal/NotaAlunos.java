@@ -1,6 +1,6 @@
-package orientacao_objetos.notafinal;
+package orientacao_objetos.introducao.notafinal;
 
-import orientacao_objetos.model.Aluno;
+import orientacao_objetos.introducao.model.Aluno;
 
 import java.util.ArrayList;
 import java.util.List;

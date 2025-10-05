@@ -1,6 +1,6 @@
-package orientacao_objetos.controle_estoque;
+package orientacao_objetos.introducao.controle_estoque;
 
-import orientacao_objetos.model.Produto;
+import orientacao_objetos.introducao.model.Produto;
 
 import java.util.Locale;
 import java.util.Scanner;

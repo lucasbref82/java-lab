@@ -1,6 +1,6 @@
-package orientacao_objetos.triangulo;
+package orientacao_objetos.introducao.triangulo;
 
-import orientacao_objetos.model.Triangulo;
+import orientacao_objetos.introducao.model.Triangulo;
 
 import java.util.Locale;
 import java.util.Scanner;

@@ -1,6 +1,6 @@
-package orientacao_objetos.estaticos;
+package orientacao_objetos.introducao.estaticos;
 
-import orientacao_objetos.estaticos.utils.CalculadoraUtils;
+import orientacao_objetos.introducao.estaticos.utils.CalculadoraUtils;
 
 import java.util.Locale;
 import java.util.Scanner;

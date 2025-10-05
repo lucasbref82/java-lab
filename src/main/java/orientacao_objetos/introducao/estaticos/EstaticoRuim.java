@@ -1,4 +1,4 @@
-package orientacao_objetos.estaticos;
+package orientacao_objetos.introducao.estaticos;
 
 import java.util.Locale;
 import java.util.Scanner;

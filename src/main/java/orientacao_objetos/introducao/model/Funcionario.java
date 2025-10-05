@@ -1,4 +1,4 @@
-package orientacao_objetos.model;
+package orientacao_objetos.introducao.model;
 
 public class Funcionario {
 
