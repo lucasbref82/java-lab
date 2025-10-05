@@ -13,7 +13,7 @@ public class Dolar {
             double valorDolar = scanner.nextDouble();
             System.out.print("Quantos dólares você quer converter ? ");
             double quantidadeDolar = scanner.nextDouble();
-            System.out.printf("Quantidade a ser paga em reais = %.2f", ConversorUtils.conversorDolarEmReais(valorDolar, quantidadeDolar));
+            System.out.printf("Quantidade a ser paga em reais = %.2f", ConversorUtils.converterDolarParaReais(valorDolar, quantidadeDolar));
         }
     }
 }
