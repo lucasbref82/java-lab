@@ -61,7 +61,7 @@ public class ContaBancaria {
 
     public void verificarSeNomeTitularVazioOuNulo(String nomeTitular) {
         if (nomeTitular == null || nomeTitular.isBlank()) {
-            throw new IllegalArgumentException("Nome do titular não pode ser vazio.")
+            throw new IllegalArgumentException("Nome do titular não pode ser vazio.");
         }
     }
 
