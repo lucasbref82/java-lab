@@ -1,6 +1,5 @@
 package orientacao_objetos.introducao.estaticos.utils;
 
-import org.jetbrains.annotations.NotNull;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -26,7 +25,7 @@ public final class ConversorUtils {
      * @throws NullPointerException se valorDolar ou quantidade for null
      * @throws IllegalArgumentException se valorDolar ou quantidade for negativo
      */
-    public static @NotNull BigDecimal converterDolarParaReais(BigDecimal valorDolar, BigDecimal quantidade) {
+    public static BigDecimal converterDolarParaReais(BigDecimal valorDolar, BigDecimal quantidade) {
         Objects.requireNonNull(valorDolar, "valorDolar não pode ser null");
         Objects.requireNonNull(quantidade, "quantidade não pode ser null");
 

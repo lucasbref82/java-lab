@@ -4,9 +4,9 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 public class ContaBancaria {
-    private int numeroConta;
+    private final int numeroConta;
     private String nomeTitular;
-    private BigDecimal saldo;
+    private BigDecimal saldo = BigDecimal.ZERO;
     private static final BigDecimal VALOR_TAXA_SAQUE = BigDecimal.valueOf(5);
 
     public ContaBancaria(int numeroConta, String nomeTitular) {
@@ -69,5 +69,10 @@ public class ContaBancaria {
         if (numeroConta <= 0) {
             throw new IllegalArgumentException("Número da conta não pode ser menor ou igual a zero");
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Conta " + numeroConta + ", Titular: " + nomeTitular + ", " + String.format("Saldo: $ %.2f", saldo);
     }
 }
