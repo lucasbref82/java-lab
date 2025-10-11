@@ -1,4 +1,4 @@
-package estrutura_dados;
+package estrutura_dados.arrays;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,6 +8,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class MediaAltura {
+
     private static final Logger log = LoggerFactory.getLogger(MediaAltura.class);
 
     public static void main(String[] args) {
