@@ -1,4 +1,4 @@
-package estrutura_dados.arrays;
+package estrutura_dados.vetor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

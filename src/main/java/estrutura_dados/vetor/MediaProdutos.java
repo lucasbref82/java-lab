@@ -1,4 +1,4 @@
-package estrutura_dados.arrays;
+package estrutura_dados.vetor;
 
 import estrutura_dados.model.Produto;
 import org.slf4j.Logger;
