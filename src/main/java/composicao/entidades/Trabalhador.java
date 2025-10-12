@@ -3,6 +3,7 @@ package composicao.entidades;
 import composicao.enums.Senioridade;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -10,16 +11,18 @@ public class Trabalhador {
     private String nome;
     private Senioridade senioridade;
     private BigDecimal salarioBase;
-    private List<HoraContrato> horaContratos;
+    private List<HoraContrato> horaContratos = new ArrayList<>();
     private Departamento departamento;
 
     public Trabalhador() {
     }
 
-    public Trabalhador(String nome, Senioridade senioridade, BigDecimal salarioBase) {
+    public Trabalhador(String nome, Senioridade senioridade, BigDecimal salarioBase, List<HoraContrato> horaContratos, Departamento departamento) {
         this.nome = nome;
         this.senioridade = senioridade;
         this.salarioBase = salarioBase;
+        this.horaContratos.addAll(horaContratos);
+        this.departamento = departamento;
     }
 
     public String getNome() {
