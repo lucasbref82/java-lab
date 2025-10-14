@@ -8,8 +8,10 @@ import lombok.extern.slf4j.Slf4j;
 import utils.Utils;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +21,7 @@ import java.util.Scanner;
 @Slf4j
 public class Principal {
     public static void main(String[] args) {
-        try(Scanner scanner = new Scanner(System.in)) {
+        try (Scanner scanner = new Scanner(System.in)) {
             scanner.useLocale(Locale.US);
 
             // Criação do departamento
@@ -59,7 +61,13 @@ public class Principal {
 
 
             System.out.print("Digite os dados para calcular a renda (MM/YYYY): ");
+            scanner.nextLine();
             String mesRenda = scanner.nextLine();
+            YearMonth anoMes = YearMonth.parse(mesRenda, DateTimeFormatter.ofPattern("MM/yyyy"));
+            BigDecimal resultado = trabalhador.renda(anoMes.getYear(), anoMes.getMonthValue());
+            System.out.println("Nome: " + trabalhador.getNome());
+            System.out.println("Departamento: " + trabalhador.getDepartamento().getNome());
+            System.out.println("Renda de " + mesRenda + ": " + resultado.setScale(2, RoundingMode.HALF_UP));
         } catch (Exception e) {
             log.error(Utils.format("Aconteceu um erro ao executar o programa: {}", e.getMessage()), e);
         }

@@ -17,7 +17,11 @@ public class HoraContrato {
         this.horas = horas;
     }
 
-    private BigDecimal valorTotal() {
+    public BigDecimal valorTotal() {
         return valorPorHora.multiply(BigDecimal.valueOf(horas));
+    }
+
+    public LocalDate getData() {
+        return data;
     }
 }
