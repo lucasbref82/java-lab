@@ -49,6 +49,14 @@ public class Trabalhador {
         this.salarioBase = salarioBase;
     }
 
+    public Departamento getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(Departamento departamento) {
+        this.departamento = departamento;
+    }
+
     public void adicionaContrato(HoraContrato horaContrato) {
         horaContratos.add(horaContrato);
     }
@@ -58,7 +66,14 @@ public class Trabalhador {
     }
 
     public BigDecimal renda(Integer ano, Integer mes){
-        return BigDecimal.ZERO;
+        BigDecimal somaContratos = BigDecimal.ZERO;
+        for (HoraContrato hc : horaContratos) {
+            if (hc.getData().getYear() == ano && hc.getData().getMonthValue() == mes) {
+                somaContratos = somaContratos.add(hc.valorTotal());
+            }
+        }
+        BigDecimal base = salarioBase == null ? BigDecimal.ZERO : salarioBase;
+        return base.add(somaContratos);
     }
 
     @Override
