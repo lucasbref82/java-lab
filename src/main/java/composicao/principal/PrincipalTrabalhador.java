@@ -18,7 +18,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 @Slf4j
-public class Principal {
+public class PrincipalTrabalhador {
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
             scanner.useLocale(Locale.US);
