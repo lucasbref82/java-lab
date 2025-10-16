@@ -1,6 +1,7 @@
 package composicao.entidades;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -55,9 +56,7 @@ public class Postagem {
     }
 
     public void addAllComentarios(List<Comentario> comentarios) {
-        for (Comentario c : comentarios) {
-            comentarios.add(c);
-        }
+        this.comentarios.addAll(comentarios);
     }
 
     public void addComentario(Comentario comentario) {
@@ -78,5 +77,18 @@ public class Postagem {
     @Override
     public int hashCode() {
         return Objects.hash(momento, titulo, conteudo, curtidas);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(titulo).append("\n");
+        stringBuilder.append(curtidas).append(" Curtidas").append(" - ").append(momento.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))).append("\n");
+        stringBuilder.append(conteudo).append("\n");
+        stringBuilder.append("Comentários: \n");
+        for(Comentario c :comentarios) {
+            stringBuilder.append(c.getTexto()).append("\n");
+        }
+        return stringBuilder.toString();
     }
 }

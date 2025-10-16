@@ -19,5 +19,21 @@ public class PrincipalPost {
         Comentario c2 = new Comentario("Uau isso é sensacional");
 
         postagem.addAllComentarios(List.of(c1, c2));
+
+        System.out.println(postagem);
+
+        postagem = new Postagem();
+        postagem.setMomento(LocalDateTime.parse("15/10/2025 11:11:15", DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
+        postagem.setTitulo("Boa noite pessoal.");
+        postagem.setConteudo("Vejo vocês amanhã.");
+        postagem.setCurtidas(5);
+
+        c1 = new Comentario("Boa noite.");
+        c2 = new Comentario("Ótima noite para você.");
+
+        postagem.addAllComentarios(List.of(c1, c2));
+
+        System.out.println(postagem);
+
     }
 }
