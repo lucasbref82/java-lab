@@ -1,12 +1,20 @@
 package composicao.entidades;
 
 import composicao.enums.Senioridade;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class Trabalhador {
     private String nome;
     private Senioridade senioridade;
@@ -14,48 +22,6 @@ public class Trabalhador {
     private List<HoraContrato> horaContratos = new ArrayList<>();
     private Departamento departamento;
 
-    public Trabalhador() {
-    }
-
-    public Trabalhador(String nome, Senioridade senioridade, BigDecimal salarioBase, List<HoraContrato> horaContratos, Departamento departamento) {
-        this.nome = nome;
-        this.senioridade = senioridade;
-        this.salarioBase = salarioBase;
-        this.horaContratos.addAll(horaContratos);
-        this.departamento = departamento;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public Senioridade getSenioridade() {
-        return senioridade;
-    }
-
-    public void setSenioridade(Senioridade senioridade) {
-        this.senioridade = senioridade;
-    }
-
-    public BigDecimal getSalarioBase() {
-        return salarioBase;
-    }
-
-    public void setSalarioBase(BigDecimal salarioBase) {
-        this.salarioBase = salarioBase;
-    }
-
-    public Departamento getDepartamento() {
-        return departamento;
-    }
-
-    public void setDepartamento(Departamento departamento) {
-        this.departamento = departamento;
-    }
 
     public void adicionaContrato(HoraContrato horaContrato) {
         horaContratos.add(horaContrato);
@@ -65,7 +31,7 @@ public class Trabalhador {
         horaContratos.remove(horaContrato);
     }
 
-    public BigDecimal renda(Integer ano, Integer mes){
+    public BigDecimal renda(Integer ano, Integer mes) {
         BigDecimal somaContratos = BigDecimal.ZERO;
         for (HoraContrato hc : horaContratos) {
             if (hc.getData().getYear() == ano && hc.getData().getMonthValue() == mes) {
