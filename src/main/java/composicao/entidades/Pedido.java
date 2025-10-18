@@ -24,6 +24,14 @@ public class Pedido {
     private List<ItemPedido> itemPedidoList = new ArrayList<>();
     private Cliente cliente;
 
+    public Pedido(LocalDateTime momento, StatusPedido statusPedido, Cliente cliente) {
+
+    }
+
+    public void addItemPedido(ItemPedido itemPedido) {
+        itemPedidoList.add(itemPedido);
+    }
+
     public BigDecimal total() {
         return itemPedidoList.
                 stream()
