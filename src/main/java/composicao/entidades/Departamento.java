@@ -1,23 +1,41 @@
 package composicao.entidades;
 
+import lombok.*;
+
 import java.util.Objects;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class Departamento {
     private String nome;
 
-    public Departamento() {
+    public Departamento(Builder builder) {
+        this.nome = builder.nome;
     }
 
-    public Departamento(String nome) {
-        this.nome = nome;
+    private static Builder builder() {
+        return new Builder();
     }
 
-    public String getNome() {
-        return nome;
-    }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public static final class Builder {
+        private String nome;
+
+        private Builder() {
+
+        }
+
+        public Builder nome(String nome) {
+            this.nome = nome;
+            return this;
+        }
+
+        public Departamento build() {
+            Objects.requireNonNull(nome, "Nome não pode ser nulo.");
+            return new Departamento(this);
+        }
     }
 
     @Override
