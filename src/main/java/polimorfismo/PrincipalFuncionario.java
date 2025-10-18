@@ -12,8 +12,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class Principal {
-    private static final Logger log = LoggerFactory.getLogger(Principal.class);
+public class PrincipalFuncionario {
+    private static final Logger log = LoggerFactory.getLogger(PrincipalFuncionario.class);
 
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
