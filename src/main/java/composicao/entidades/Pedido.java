@@ -1,6 +1,10 @@
 package composicao.entidades;
 
 import enums.StatusPedido;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -10,52 +14,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class Pedido {
     private LocalDateTime momento;
     private StatusPedido statusPedido;
     private List<ItemPedido> itemPedidoList = new ArrayList<>();
     private Cliente cliente;
-
-    public Pedido() {
-    }
-
-    public Pedido(LocalDateTime momento, StatusPedido statusPedido, Cliente cliente) {
-        this.momento = momento;
-        this.statusPedido = statusPedido;
-        this.cliente = cliente;
-    }
-
-    public LocalDateTime getMomento() {
-        return momento;
-    }
-
-    public void setMomento(LocalDateTime momento) {
-        this.momento = momento;
-    }
-
-    public StatusPedido getStatusPedido() {
-        return statusPedido;
-    }
-
-    public void setStatusPedido(StatusPedido statusPedido) {
-        this.statusPedido = statusPedido;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public void addItemPedido(ItemPedido pedido) {
-        itemPedidoList.add(pedido);
-    }
-
-    public void removeItemPedido(ItemPedido pedido){
-        itemPedidoList.remove(pedido);
-    }
 
     public BigDecimal total() {
         return itemPedidoList.
