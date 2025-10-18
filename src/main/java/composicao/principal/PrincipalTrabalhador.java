@@ -26,7 +26,7 @@ public class PrincipalTrabalhador {
             // Criação do departamento
             System.out.print("Qual o nome do departamento? ");
             String nomeDepartamento = scanner.nextLine();
-            Departamento departamento = new Departamento(nomeDepartamento);
+            Departamento departamento = Departamento.builder().nome(nomeDepartamento).build();
 
             // Trabalhador e hora contrato
             System.out.println("Entre com os dados do trabalhador: ");
