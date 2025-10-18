@@ -1,24 +1,19 @@
 package composicao.entidades;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.Objects;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class Comentario {
+
     private String texto;
-
-    public Comentario() {
-    }
-
-    public Comentario(String texto) {
-        this.texto = texto;
-    }
-
-    public String getTexto() {
-        return texto;
-    }
-
-    public void setTexto(String texto) {
-        this.texto = texto;
-    }
 
     @Override
     public boolean equals(Object object) {
