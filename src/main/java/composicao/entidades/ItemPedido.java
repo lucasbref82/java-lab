@@ -3,7 +3,8 @@ package composicao.entidades;
 import java.math.BigDecimal;
 import java.util.Objects;
 
-public class ItemPedido {
+public final class ItemPedido {
+
     private Integer quantidade;
     private BigDecimal preco;
     private Produto produto;
@@ -16,6 +17,17 @@ public class ItemPedido {
         this.preco = preco;
         this.produto = produto;
     }
+
+    private ItemPedido(Builder builder) {
+        this.quantidade = builder.quantidade;
+        this.preco = builder.preco;
+        this.produto = builder.produto;
+    }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
 
     public Integer getQuantidade() {
         return quantidade;
@@ -43,6 +55,35 @@ public class ItemPedido {
 
     public BigDecimal subTotal() {
         return preco.multiply(BigDecimal.valueOf(quantidade));
+    }
+
+    public static final class Builder {
+        private Integer quantidade;
+        private BigDecimal preco;
+        private Produto produto;
+
+        private Builder() {}
+
+        public Builder quantidade(Integer quantidade) {
+            this.quantidade = quantidade;
+            return this;
+        }
+
+        public Builder preco(BigDecimal preco) {
+            this.preco = preco;
+            return this;
+        }
+
+        public Builder produto(Produto produto) {
+            this.produto = produto;
+            return this;
+        }
+
+        public ItemPedido build() {
+            Objects.requireNonNull(quantidade, "Quantidade não pode ser nula.");
+            Objects.requireNonNull(produto, "Produto não pode ser nulo.");
+            return new ItemPedido(this);
+        }
     }
 
 

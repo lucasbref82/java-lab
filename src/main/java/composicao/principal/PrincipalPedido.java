@@ -57,7 +57,12 @@ public class PrincipalPedido {
                 System.out.print("Quantidade: ");
                 int quantidadeProduto = Integer.parseInt(scanner.nextLine().trim());
 
-                ItemPedido itemPedido = new ItemPedido(quantidadeProduto, precoProduto, new Produto(nomeProduto, precoProduto));
+                ItemPedido itemPedido = ItemPedido.builder()
+                        .quantidade(quantidadeProduto)
+                        .preco(precoProduto)
+                        .produto(new Produto(nomeProduto, precoProduto)).
+                        build();
+
                 pedido.addItemPedido(itemPedido);
             }
 
