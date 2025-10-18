@@ -30,7 +30,7 @@ public class Pessoa {
     public boolean equals(Object object) {
         if (object == null || getClass() != object.getClass()) return false;
         Pessoa pessoa = (Pessoa) object;
-        return Objects.equals(nome, pessoa.nome) && Objects.equals(dataAniversario, pessoa.dataAniversario) && Objects.equals(cpf, pessoa.cpf) && Objects.equals(registroGeral, pessoa.registroGeral) && Objects.equals(cor, pessoa.cor) && Objects.equals(nacionalidade, pessoa.nacionalidade);
+        return Objects.equals(cpf, pessoa.cpf);
     }
 
     @Override
