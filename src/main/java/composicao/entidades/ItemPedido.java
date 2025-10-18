@@ -1,22 +1,23 @@
 package composicao.entidades;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.math.BigDecimal;
 import java.util.Objects;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public final class ItemPedido {
 
     private Integer quantidade;
     private BigDecimal preco;
     private Produto produto;
 
-    public ItemPedido() {
-    }
-
-    public ItemPedido(Integer quantidade, BigDecimal preco, Produto produto) {
-        this.quantidade = quantidade;
-        this.preco = preco;
-        this.produto = produto;
-    }
 
     private ItemPedido(Builder builder) {
         this.quantidade = builder.quantidade;
@@ -26,31 +27,6 @@ public final class ItemPedido {
 
     public static Builder builder() {
         return new Builder();
-    }
-
-
-    public Integer getQuantidade() {
-        return quantidade;
-    }
-
-    public void setQuantidade(Integer quantidade) {
-        this.quantidade = quantidade;
-    }
-
-    public BigDecimal getPreco() {
-        return preco;
-    }
-
-    public void setPreco(BigDecimal preco) {
-        this.preco = preco;
-    }
-
-    public Produto getProduto() {
-        return produto;
-    }
-
-    public void setProduto(Produto produto) {
-        this.produto = produto;
     }
 
     public BigDecimal subTotal() {
