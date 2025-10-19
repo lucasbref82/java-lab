@@ -1,4 +1,4 @@
-package estrutura_dados.model;
+package estrutura_dados.entidades;
 
 import utils.Utils;
 

@@ -1,4 +1,4 @@
-package estrutura_dados.model;
+package estrutura_dados.entidades;
 
 import java.math.BigDecimal;
 import java.util.Objects;

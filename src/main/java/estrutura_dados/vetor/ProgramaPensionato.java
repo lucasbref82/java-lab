@@ -1,6 +1,6 @@
 package estrutura_dados.vetor;
 
-import estrutura_dados.model.Pensionato;
+import estrutura_dados.entidades.Pensionato;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import utils.Utils;

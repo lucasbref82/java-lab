@@ -1,6 +1,6 @@
 package estrutura_dados.vetor;
 
-import estrutura_dados.model.Produto;
+import estrutura_dados.entidades.Produto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import utils.Utils;
