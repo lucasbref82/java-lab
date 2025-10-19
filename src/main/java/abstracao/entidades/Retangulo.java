@@ -1,16 +1,19 @@
 package abstracao.entidades;
 
+import abstracao.enums.Cor;
+
 import java.math.BigDecimal;
 import java.util.Objects;
 
-public class Retangulo {
+public class Retangulo extends Forma{
     private BigDecimal largura;
     private BigDecimal altura;
 
     public Retangulo() {
     }
 
-    public Retangulo(BigDecimal largura, BigDecimal altura) {
+    public Retangulo(Cor cor, BigDecimal largura, BigDecimal altura) {
+        super(cor);
         this.largura = largura;
         this.altura = altura;
     }
@@ -29,6 +32,11 @@ public class Retangulo {
 
     public void setAltura(BigDecimal altura) {
         this.altura = altura;
+    }
+
+    @Override
+    public BigDecimal area() {
+        return largura.multiply(altura);
     }
 
     @Override
