@@ -77,4 +77,15 @@ public class Utils {
         return null;
     }
 
+    public static Calendar getCalendar(LocalDate localDate) {
+        if (localDate != null) {
+            ZonedDateTime zonedDateTime = localDate.atStartOfDay(ZoneId.systemDefault());
+            Date date = Date.from(zonedDateTime.toInstant());
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+            return calendar;
+        }
+        return null;
+    }
+
 }
