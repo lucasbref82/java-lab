@@ -3,6 +3,9 @@ package utils;
 import org.slf4j.helpers.MessageFormatter;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -51,4 +54,13 @@ public class Utils {
         Matcher matcher = Pattern.compile(EMAIL_REGEX).matcher(email);
         return matcher.matches();
     }
+
+    public static LocalDateTime converteCalendarParaLocalDateTime(Calendar calendar) {
+        return LocalDateTime.ofInstant(calendar.toInstant(), calendar.getTimeZone().toZoneId());
+    }
+
+    public static LocalDate converteCalendarParaLocalDate(Calendar calendar) {
+        return LocalDateTime.ofInstant(calendar.toInstant(), calendar.getTimeZone().toZoneId()).toLocalDate();
+    }
+
 }
