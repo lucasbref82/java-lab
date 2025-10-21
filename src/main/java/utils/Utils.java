@@ -3,8 +3,12 @@ package utils;
 import org.slf4j.helpers.MessageFormatter;
 
 import java.math.BigDecimal;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Utils {
+
+    private static final String EMAIL_REGEX = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
 
     private Utils() throws IllegalAccessException {
         throw new IllegalAccessException("Classe utilitária não pode ser instanciada.");
@@ -38,5 +42,13 @@ public class Utils {
 
     public static BigDecimal calculaValorPorBaseEhPorcentagem(BigDecimal valor, BigDecimal porcentagem) {
         return valor.multiply(porcentagem);
+    }
+
+    public static boolean ehEmailValido(String email) {
+        if (email == null) {
+            return false;
+        }
+        Matcher matcher = Pattern.compile(EMAIL_REGEX).matcher(email);
+        return matcher.matches();
     }
 }
