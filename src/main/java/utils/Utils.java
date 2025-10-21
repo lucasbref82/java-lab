@@ -100,4 +100,16 @@ public class Utils {
         }
     }
 
+    public static Long toLongOrDefault(String value) {
+        return toLongOrDefault(value, null);
+    }
+
+    public static Long toLongOrDefault(String value, Long defaultValue) {
+        try {
+            return Long.parseLong(value);
+        } catch (Exception e) {
+            return defaultValue;
+        }
+    }
+
 }
