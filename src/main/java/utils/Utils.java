@@ -88,4 +88,16 @@ public class Utils {
         return null;
     }
 
+    public static Integer toIntegerOrDefault(String value) {
+        return toIntegerOrDefault(value, null);
+    }
+
+    public static Integer toIntegerOrDefault(String value, Integer defaultValue) {
+        try {
+            return Integer.parseInt(value);
+        } catch (Exception e) {
+            return defaultValue;
+        }
+    }
+
 }
