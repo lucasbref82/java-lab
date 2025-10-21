@@ -5,7 +5,10 @@ import org.slf4j.helpers.MessageFormatter;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -61,6 +64,17 @@ public class Utils {
 
     public static LocalDate converteCalendarParaLocalDate(Calendar calendar) {
         return LocalDateTime.ofInstant(calendar.toInstant(), calendar.getTimeZone().toZoneId()).toLocalDate();
+    }
+
+    public static Calendar getCalendar(LocalDateTime localDateTime) {
+        if (localDateTime != null) {
+            ZonedDateTime zonedDateTime = localDateTime.atZone(ZoneId.systemDefault());
+            Date date = Date.from(zonedDateTime.toInstant());
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+            return calendar;
+        }
+        return null;
     }
 
 }
