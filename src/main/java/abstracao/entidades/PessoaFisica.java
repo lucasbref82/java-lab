@@ -1,41 +1,41 @@
 package abstracao.entidades;
 
+import utils.Utils;
+
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class PessoaFisica extends Pessoa{
 
-    private static final BigDecimal PORCETAGEM_ABAIXO_VINTE_MIL = BigDecimal.valueOf(0.15);
-    private static final BigDecimal PORCETAGEM_ACIMA_VINTE_MIL = BigDecimal.valueOf(0.25);
-    private static final BigDecimal BASE_CALCULO_RENDA = BigDecimal.valueOf(20000.00);
+    private static final BigDecimal ALIQUOTA_FAIXA_INFERIOR = new BigDecimal("0.15");
+    private static final BigDecimal ALIQUOTA_FAIXA_SUPERIOR = new BigDecimal("0.25");
+    private static final BigDecimal BASE_CALCULO_RENDA = new BigDecimal("20000.00");
     private static final Integer DESCONTO_GASTO_SAUDE = 50;
 
-    private BigDecimal gastosComSaude = BigDecimal.ZERO;
+    private final BigDecimal gastosComSaude;
 
-    public PessoaFisica() {
-    }
 
     public PessoaFisica(String nome, BigDecimal rendaAnual, BigDecimal gastosComSaude) {
         super(nome, rendaAnual);
         this.gastosComSaude = gastosComSaude;
     }
 
+
     @Override
     public BigDecimal calculaImposto() {
-        BigDecimal impostoAnual = BigDecimal.ZERO;
-        BigDecimal gastosSaude = BigDecimal.ZERO;
+        BigDecimal impostoAnual;
+        BigDecimal gastosSaude = calculaDeducaoSaude();
         if (rendaAnual.compareTo(BASE_CALCULO_RENDA) > 0) {
-            gastosSaude = gastosComSaude.compareTo(BigDecimal.ZERO) > 0 ? gastosComSaude.divide(BigDecimal.valueOf(DESCONTO_GASTO_SAUDE)) : BigDecimal.ZERO;
-            impostoAnual = rendaAnual.multiply(PORCETAGEM_ACIMA_VINTE_MIL).add(gastosSaude);
+            impostoAnual = Utils.calculaValorPorBaseEhPorcentagem(rendaAnual, ALIQUOTA_FAIXA_SUPERIOR).subtract(gastosSaude);
         } else {
-            impostoAnual = rendaAnual.multiply(PORCETAGEM_ACIMA_VINTE_MIL).add(gastosSaude);
+            impostoAnual = Utils.calculaValorPorBaseEhPorcentagem(rendaAnual, ALIQUOTA_FAIXA_INFERIOR).subtract(gastosSaude);
         }
+        return impostoAnual;
     }
 
-    public BigDecimal getGastosComSaude() {
-        return gastosComSaude;
-    }
-
-    public void setGastosComSaude(BigDecimal gastosComSaude) {
-        this.gastosComSaude = gastosComSaude;
+    private BigDecimal calculaDeducaoSaude() {
+        return gastosComSaude.compareTo(BigDecimal.ZERO) > 0
+                ? gastosComSaude.divide(BigDecimal.valueOf(DESCONTO_GASTO_SAUDE), RoundingMode.HALF_UP)
+                : BigDecimal.ZERO;
     }
 }

@@ -1,15 +1,18 @@
 package abstracao.entidades;
 
+import utils.Utils;
+
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public abstract class Pessoa {
+
     protected String nome;
     protected BigDecimal rendaAnual;
 
-    public Pessoa() {
-    }
-
-    public Pessoa(String nome, BigDecimal rendaAnual) {
+    protected Pessoa(String nome, BigDecimal rendaAnual) {
+        Objects.requireNonNull(nome, "Nome não pode ser nulo! ");
+        Utils.validaSeBigdecimalZeroOuNegativo(rendaAnual);
         this.nome = nome;
         this.rendaAnual = rendaAnual;
     }
@@ -18,17 +21,6 @@ public abstract class Pessoa {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public BigDecimal getRendaAnual() {
-        return rendaAnual;
-    }
-
-    public void setRendaAnual(BigDecimal rendaAnual) {
-        this.rendaAnual = rendaAnual;
-    }
 
     public abstract BigDecimal calculaImposto();
 }
