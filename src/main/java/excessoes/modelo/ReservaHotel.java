@@ -1,13 +1,15 @@
 package excessoes.modelo;
 
 import excessoes.modelo.excessao.RegraNegocioException;
+import utils.Utils;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Objects;
 
 public class ReservaHotel {
     
-    private Integer numeroQuarto;
+    private final Integer numeroQuarto;
     private LocalDate dataEntrada;
     private LocalDate dataSaida;
 
@@ -18,29 +20,6 @@ public class ReservaHotel {
         this.dataSaida = dataSaida;
     }
 
-    public Integer getNumeroQuarto() {
-        return numeroQuarto;
-    }
-
-    public void setNumeroQuarto(Integer numeroQuarto) {
-        this.numeroQuarto = numeroQuarto;
-    }
-
-    public LocalDate getDataEntrada() {
-        return dataEntrada;
-    }
-
-    public void setDataEntrada(LocalDate dataEntrada) {
-        this.dataEntrada = dataEntrada;
-    }
-
-    public LocalDate getDataSaida() {
-        return dataSaida;
-    }
-
-    public void setDataSaida(LocalDate dataSaida) {
-        this.dataSaida = dataSaida;
-    }
     
     public void atualizarDatas(LocalDate dataEntrada, LocalDate dataSaida) throws RegraNegocioException {
         validarDatas(dataEntrada, dataSaida);
@@ -57,6 +36,10 @@ public class ReservaHotel {
         }
     }
 
+    public Long calculaTotalNoites() {
+        return ChronoUnit.DAYS.between(dataEntrada, dataSaida);
+    }
+
     @Override
     public boolean equals(Object object) {
         if (object == null || getClass() != object.getClass()) return false;
@@ -67,5 +50,10 @@ public class ReservaHotel {
     @Override
     public int hashCode() {
         return Objects.hashCode(numeroQuarto);
+    }
+
+    @Override
+    public String toString() {
+        return "Reserva: Quarto " + numeroQuarto + " Entrada: " + dataEntrada.format(Utils.LOCAL_DATE_PT_BR) + " Data saída: " + dataSaida.format(Utils.LOCAL_DATE_PT_BR) + ", " + calculaTotalNoites() + " noites";
     }
 }
