@@ -26,7 +26,7 @@ public class Funcionario {
 
     @Override
     public boolean equals(Object objeto) {
-        if( objeto == null || objeto.getClass() != getClass()) return false;
+        if(objeto == null || objeto.getClass() != getClass()) return false;
         Funcionario that = (Funcionario) objeto;
         return Objects.equals(that.getNome(), nome);
     }
