@@ -1,8 +1,10 @@
 package excessoes.modelo;
 
 import excessoes.modelo.excessao.RegraNegocioException;
+import utils.TimeUtils;
 import utils.Utils;
 
+import java.sql.Time;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Objects;
@@ -54,6 +56,6 @@ public class ReservaHotel {
 
     @Override
     public String toString() {
-        return "Reserva: Quarto " + numeroQuarto + " Entrada: " + dataEntrada.format(Utils.LOCAL_DATE_PT_BR) + " Data saída: " + dataSaida.format(Utils.LOCAL_DATE_PT_BR) + ", " + calculaTotalNoites() + " noites";
+        return "Reserva: Quarto " + numeroQuarto + " Entrada: " + dataEntrada.format(TimeUtils.LOCAL_DATE_PT_BR) + " Data saída: " + dataSaida.format(TimeUtils.LOCAL_DATE_PT_BR) + ", " + calculaTotalNoites() + " noites.";
     }
 }

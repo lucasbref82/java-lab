@@ -7,7 +7,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.regex.Matcher;
@@ -16,7 +15,6 @@ import java.util.regex.Pattern;
 public class Utils {
 
     private static final String EMAIL_REGEX = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
-    public static final DateTimeFormatter LOCAL_DATE_PT_BR = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     private Utils() throws IllegalAccessException {
         throw new IllegalAccessException("Classe utilitária não pode ser instanciada.");
@@ -120,10 +118,6 @@ public class Utils {
         } catch (Exception e) {
             return defaultValue;
         }
-    }
-
-    public static  LocalDate parseLocalDate(String localDateString) {
-        return LocalDate.parse(localDateString, LOCAL_DATE_PT_BR);
     }
 
 }

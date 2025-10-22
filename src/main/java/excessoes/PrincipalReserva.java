@@ -1,6 +1,7 @@
 package excessoes;
 
 import excessoes.modelo.ReservaHotel;
+import utils.TimeUtils;
 import utils.Utils;
 
 import java.util.Locale;
@@ -21,8 +22,8 @@ public class PrincipalReserva {
             ReservaHotel reservaHotel =
                     new ReservaHotel(
                             numeroQuarto,
-                            Utils.parseLocalDate(dataEntrada),
-                            Utils.parseLocalDate(dataSaida)
+                            TimeUtils.parserLocalDateBr(dataEntrada),
+                            TimeUtils.parserLocalDateBr(dataSaida)
                     );
             System.out.println(reservaHotel);
 
@@ -33,7 +34,7 @@ public class PrincipalReserva {
             dataEntrada = scanner.nextLine();
             System.out.print("Data de saída (DD/MM/YYYY): ");
             dataSaida = scanner.nextLine();
-            reservaHotel.atualizarDatas(Utils.parseLocalDate(dataEntrada), Utils.parseLocalDate(dataSaida));
+            reservaHotel.atualizarDatas(TimeUtils.parserLocalDateBr(dataEntrada), TimeUtils.parserLocalDateBr(dataSaida));
             System.out.println(reservaHotel);
         } catch (Exception e) {
             System.out.println("Erro na reserva: " + e.getMessage());

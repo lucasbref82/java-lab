@@ -2,10 +2,13 @@ package utils;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.Temporal;
 
 public class TimeUtils {
+
+    public static final DateTimeFormatter LOCAL_DATE_PT_BR = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     private TimeUtils() throws IllegalAccessException {
         throw new IllegalAccessException("Classe utilitária " + getClass().getName() + " não pode ser instânciada.");
@@ -39,6 +42,10 @@ public class TimeUtils {
             return;
         }
         throw new IllegalArgumentException("Tipos temporais diferentes ou não suportados (ex: LocalDate vs LocalDateTime).");
+    }
+
+    public static  LocalDate parserLocalDateBr(String localDateString) {
+        return LocalDate.parse(localDateString, LOCAL_DATE_PT_BR);
     }
 
 }
