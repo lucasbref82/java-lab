@@ -112,4 +112,12 @@ public class Utils {
         }
     }
 
+    public static Short toShortOrDefault(Integer value, Short defaultValue) {
+        try {
+            return value == null ? null : value.shortValue();
+        } catch (Exception e) {
+            return defaultValue;
+        }
+    }
+
 }
