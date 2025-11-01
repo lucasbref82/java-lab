@@ -109,6 +109,7 @@ public class TimeUtils {
         if (t1 == null || t2 == null) throw new IllegalArgumentException("Temporal não pode ser nulo.");
         if (unit == null) throw new IllegalArgumentException("ChronoUnit não pode ser nulo.");
         return unit.between(t1, t2);
+
     }
 
     /**
