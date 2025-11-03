@@ -54,12 +54,12 @@ public class Conta {
     }
 
     private void validaSaque(BigDecimal valorSaque) throws RegraNegocioException {
-        if (valorSaque.compareTo(saldo) > 0) {
-            throw new RegraNegocioException("Saldo insuficiente para o saque.");
-        }
         Objects.requireNonNull(valorSaque, "Valor do saque não pode ser nulo");
         if (valorSaque.compareTo(limiteSaque) > 0) {
             throw new RegraNegocioException("Valor do saque não pode ser maior que o limite de saque.");
+        }
+        if (valorSaque.compareTo(saldo) > 0) {
+            throw new RegraNegocioException("Saldo insuficiente para o saque.");
         }
     }
 

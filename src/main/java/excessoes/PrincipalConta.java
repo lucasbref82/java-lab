@@ -1,8 +1,10 @@
 package excessoes;
 
 import excessoes.modelo.Conta;
+import excessoes.modelo.excessao.RegraNegocioException;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -21,6 +23,15 @@ public class PrincipalConta {
             System.out.print("Limite saque: ");
             BigDecimal limiteSaque = scanner.nextBigDecimal();
             Conta conta = new Conta(numero, titular, saldoInicial, limiteSaque);
+            System.out.println();
+            System.out.print("Digite o valor de saque: ");
+            BigDecimal valorSaque = scanner.nextBigDecimal();
+            conta.sacar(valorSaque);
+            System.out.print("Novo saldo: "+ conta.getSaldo().setScale(2, RoundingMode.HALF_UP));
+        } catch (RegraNegocioException e1) {
+            System.out.println("Erro no saque: " + e1.getMessage());
+        } catch (Exception e2) {
+            System.out.println("Erro inesperado ao tentar executar a aplicação: " + e2.getMessage());
         }
     }
 
