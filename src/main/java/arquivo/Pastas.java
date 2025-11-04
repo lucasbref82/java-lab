@@ -16,7 +16,6 @@ public class Pastas {
             System.out.println(file);
         }
 
-
         System.out.println();
 
         File[] arquivos = pasta.listFiles(File::isFile);
