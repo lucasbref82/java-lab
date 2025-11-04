@@ -1,4 +1,4 @@
-package arquivo;
+package arquivo.leitura;
 
 import java.io.File;
 import java.io.IOException;

@@ -37,7 +37,7 @@ public class ProgramaPensionato {
 
                 if (pensionatos[quarto] != null) {
                     System.out.println("Quarto já está ocupado. Escolha outro.");
-                    i--;
+                    --i;
                     continue;
                 }
 
