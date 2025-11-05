@@ -39,6 +39,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.Temporal;
+import java.util.Date;
 
 public class TimeUtils {
 
@@ -46,6 +47,11 @@ public class TimeUtils {
      * Formatter para o padrão brasileiro: <code>dd/MM/yyyy</code>.
      */
     public static final DateTimeFormatter LOCAL_DATE_PT_BR = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+    /**
+     * Formatter para o padrão brasileiro: <code>dd/MM/yyyy HH:mm</code>.
+     */
+    public static final DateTimeFormatter LOCAL_DATE_TIME_PT_BR = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
 
     /**
      * Construtor privado para evitar instanciação. Sempre lança {@link IllegalAccessException} caso invocado
@@ -149,5 +155,18 @@ public class TimeUtils {
     public static LocalDate parserLocalDateBr(String localDateString) {
         if (localDateString == null) throw new IllegalArgumentException("localDateString não pode ser nulo.");
         return LocalDate.parse(localDateString, LOCAL_DATE_PT_BR);
+    }
+
+    /**
+     * Faz o parsing de uma {@link LocalDateTime} no formato brasileiro <code>dd/MM/yyyy</code>.
+     *
+     * @param localDateString string contendo a data no formato <code>dd/MM/yyyy HH:mm</code>
+     * @return instância de {@link LocalDateTime} correspondente à string informada
+     * @throws DateTimeParseException  quando a string não estiver no formato esperado ou contiver valores inválidos
+     * @throws IllegalArgumentException quando <code>localDateString</code> for nulo
+     */
+    public static LocalDateTime parserLocalDateTimeBr(String localDateString) {
+        if (localDateString == null) throw new IllegalArgumentException("localDateString não pode ser nulo.");
+        return LocalDateTime.parse(localDateString, LOCAL_DATE_TIME_PT_BR);
     }
 }
