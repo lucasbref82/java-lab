@@ -145,9 +145,10 @@ public class TimeUtils {
     }
 
     /**
-     * Faz o parsing de uma {@link LocalDate} no formato brasileiro <code>dd/MM/yyyy</code>.
+     * Faz o parsing de uma {@link LocalDate} no formato brasileiro com base em um {@link DateTimeFormatter}
      *
      * @param localDateString string contendo a data no formato <code>dd/MM/yyyy</code>
+     * @param dateTimeFormatter Padrão do formato LocalDate
      * @return instância de {@link LocalDate} correspondente à string informada
      * @throws DateTimeParseException  quando a string não estiver no formato esperado ou contiver valores inválidos
      * @throws IllegalArgumentException quando <code>localDateString</code> for nulo
@@ -158,9 +159,10 @@ public class TimeUtils {
     }
 
     /**
-     * Faz o parsing de uma {@link LocalDateTime} no formato brasileiro <code>dd/MM/yyyy</code>.
-     *
-     * @param localDateString string contendo a data no formato <code>dd/MM/yyyy HH:mm</code>
+     * Faz o parsing de uma {@link LocalDateTime} no formato brasileiro com base em um {@link DateTimeFormatter}
+     * @param dateTimeFormatter Padrão do formato LocalDateTime
+     * @param localDateString string contendo uma da data e hora
+
      * @return instância de {@link LocalDateTime} correspondente à string informada
      * @throws DateTimeParseException  quando a string não estiver no formato esperado ou contiver valores inválidos
      * @throws IllegalArgumentException quando <code>localDateString</code> for nulo
