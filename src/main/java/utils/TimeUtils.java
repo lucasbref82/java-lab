@@ -152,9 +152,9 @@ public class TimeUtils {
      * @throws DateTimeParseException  quando a string não estiver no formato esperado ou contiver valores inválidos
      * @throws IllegalArgumentException quando <code>localDateString</code> for nulo
      */
-    public static LocalDate parserLocalDateBr(String localDateString) {
+    public static LocalDate parserLocalDate(String localDateString, DateTimeFormatter dateTimeFormatter) {
         if (localDateString == null) throw new IllegalArgumentException("localDateString não pode ser nulo.");
-        return LocalDate.parse(localDateString, LOCAL_DATE_PT_BR);
+        return LocalDate.parse(localDateString, dateTimeFormatter);
     }
 
     /**
@@ -165,8 +165,8 @@ public class TimeUtils {
      * @throws DateTimeParseException  quando a string não estiver no formato esperado ou contiver valores inválidos
      * @throws IllegalArgumentException quando <code>localDateString</code> for nulo
      */
-    public static LocalDateTime parserLocalDateTimeBr(String localDateString) {
+    public static LocalDateTime parserLocalDateTime(String localDateString, DateTimeFormatter dateTimeFormatter) {
         if (localDateString == null) throw new IllegalArgumentException("localDateString não pode ser nulo.");
-        return LocalDateTime.parse(localDateString, LOCAL_DATE_TIME_PT_BR);
+        return LocalDateTime.parse(localDateString, dateTimeFormatter);
     }
 }
