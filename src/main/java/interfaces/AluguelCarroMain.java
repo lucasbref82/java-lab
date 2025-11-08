@@ -7,6 +7,7 @@ import interfaces.service.AluguelCarroService;
 import utils.TimeUtils;
 
 import java.math.BigDecimal;
+import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -32,8 +33,8 @@ public class AluguelCarroMain {
 
             AluguelCarro aluguelCarro =
                     AluguelCarro.builder()
-                            .entrada(TimeUtils.parserLocalDateTimeBr(dataEntrada))
-                            .saida(TimeUtils.parserLocalDateTimeBr(dataSaida))
+                            .entrada(TimeUtils.parserLocalDateTime(dataEntrada, TimeUtils.LOCAL_DATE_TIME_PT_BR))
+                            .saida(TimeUtils.parserLocalDateTime(dataSaida, TimeUtils.LOCAL_DATE_TIME_PT_BR))
                             .veiculo(Veiculo.builder()
                                     .nome(modeloCarro)
                                     .build()
