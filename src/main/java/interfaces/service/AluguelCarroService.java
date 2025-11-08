@@ -1,29 +1,29 @@
 package interfaces.service;
 
-import interfaces.entidades.Estacionamento;
+import interfaces.entidades.AluguelCarro;
 import utils.TimeUtils;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.temporal.ChronoUnit;
 
-public class EstacionamentoService {
+public class AluguelCarroService {
 
-    private final Estacionamento estacionamento;
+    private final AluguelCarro aluguelCarro;
 
     // Taxas percentuais
     private static final BigDecimal TAXA_VALORES_ATE_CEM_REAIS = new BigDecimal("20");
     private static final BigDecimal TAXA_VALORES_ACIMA_CEM_REAIS = new BigDecimal("15");
     private static final BigDecimal DIVIDENDO = new BigDecimal("100");
 
-    public EstacionamentoService(Estacionamento estacionamento) {
-        this.estacionamento = estacionamento;
+    public AluguelCarroService(AluguelCarro aluguelCarro) {
+        this.aluguelCarro = aluguelCarro;
     }
 
     private Long calculaDuracao() {
         long minutos = TimeUtils.diferencaEntreTemporais(
-                estacionamento.getEntrada(),
-                estacionamento.getSaida(),
+                aluguelCarro.getEntrada(),
+                aluguelCarro.getSaida(),
                 ChronoUnit.MINUTES
         );
         long horas = minutos / 60;
@@ -35,7 +35,7 @@ public class EstacionamentoService {
     }
 
     private BigDecimal calculaPagamentoBasico() {
-        return new BigDecimal(calculaDuracao()).multiply(estacionamento.getPrecoPorHora());
+        return new BigDecimal(calculaDuracao()).multiply(aluguelCarro.PRECO_POR_HORA);
     }
 
     private BigDecimal calculaTaxa() {
