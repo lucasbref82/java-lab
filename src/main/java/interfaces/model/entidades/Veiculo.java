@@ -1,12 +1,10 @@
-package interfaces.entidades;
+package interfaces.model.entidades;
 
 import java.util.Objects;
 
 public class Veiculo {
-    private String nome;
 
-    public Veiculo() {
-    }
+    private String nome;
 
     public Veiculo(String nome) {
         this.nome = nome;

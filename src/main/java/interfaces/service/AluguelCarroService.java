@@ -1,6 +1,6 @@
 package interfaces.service;
 
-import interfaces.entidades.AluguelCarro;
+import interfaces.model.entidades.AluguelCarro;
 import utils.TimeUtils;
 
 import java.math.BigDecimal;
@@ -11,7 +11,6 @@ public class AluguelCarroService {
 
     private final AluguelCarro aluguelCarro;
 
-    // Taxas percentuais
     private static final BigDecimal TAXA_VALORES_ATE_CEM_REAIS = new BigDecimal("20");
     private static final BigDecimal TAXA_VALORES_ACIMA_CEM_REAIS = new BigDecimal("15");
     private static final BigDecimal DIVIDENDO = new BigDecimal("100");

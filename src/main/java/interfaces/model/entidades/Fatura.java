@@ -1,6 +1,4 @@
-package interfaces.entidades;
-
-import com.sun.source.tree.NewArrayTree;
+package interfaces.model.entidades;
 
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -31,8 +29,8 @@ public class Fatura {
         }
 
         public Builder taxa(BigDecimal taxa) {
-             this.taxa = taxa;
-             return this;
+            this.taxa = taxa;
+            return this;
         }
 
         public Fatura build() {
@@ -55,9 +53,10 @@ public class Fatura {
     public void setTaxa(BigDecimal taxa) {
         this.taxa = taxa;
     }
-     public BigDecimal pagamentoTotal() {
-        return taxa.add(pagamentoBasico);
-     }
+
+    public BigDecimal pagamentoTotal() {
+        return getPagamentoBasico().add(getTaxa());
+    }
 
 
     @Override

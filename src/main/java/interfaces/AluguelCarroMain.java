@@ -1,19 +1,19 @@
 package interfaces;
 
-import interfaces.entidades.AluguelCarro;
-import interfaces.entidades.Fatura;
-import interfaces.entidades.Veiculo;
+import interfaces.model.entidades.AluguelCarro;
+import interfaces.model.entidades.Fatura;
+import interfaces.model.entidades.Veiculo;
 import interfaces.service.AluguelCarroService;
 import utils.TimeUtils;
 
 import java.math.BigDecimal;
-import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Scanner;
 
 public class AluguelCarroMain {
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)){
+
             scanner.useLocale(Locale.US);
 
             System.out.print("Modelo do carro: ");
@@ -43,11 +43,6 @@ public class AluguelCarroMain {
                                     .taxa(taxa)
                                     .build()
                             ).build();
-
-
-            AluguelCarroService estacionamentoService = new AluguelCarroService(aluguelCarro);
-
-            estacionamentoService.notaFiscal();
         } catch (Exception e) {
             System.out.println("Ocorreu um errro na aplicação: ");
         }
