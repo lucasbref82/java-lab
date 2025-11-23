@@ -10,7 +10,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class Program {
+public class ProgramAluguelCarro {
     public static void main(String[] args) {
 
         try(Scanner scanner = new Scanner(System.in)){
