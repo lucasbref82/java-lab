@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
+
         try(Scanner scanner = new Scanner(System.in)){
             scanner.useLocale(Locale.US);
             DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
@@ -26,6 +27,9 @@ public class Program {
             LocalDateTime saida = LocalDateTime.parse(scanner.nextLine(), dateTimeFormatter);
 
             AluguelCarro aluguelCarro = new AluguelCarro(entrada, saida, new Veiculo(modeloCarro));
+        } catch (Exception e) {
+            System.out.println("Ocorreu um erro ao executar o programa !" + e.getMessage());
+            e.printStackTrace();
         }
     }
 }
