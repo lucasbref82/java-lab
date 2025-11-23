@@ -2,6 +2,7 @@ package interfaces.services;
 
 import interfaces.entidades.AluguelCarro;
 import interfaces.entidades.Fatura;
+import interfaces.itf.TaxaService;
 
 import java.time.Duration;
 
@@ -9,10 +10,10 @@ public class AluguelService {
 
     private Double precoPorDia;
     private Double precoPorHora;
-    private TaxaBrasilService taxaBrasilService;
+    private TaxaService taxaService;
 
-    public AluguelService(TaxaBrasilService taxaBrasilService, Double precoPorHora, Double precoPorDia) {
-        this.taxaBrasilService = taxaBrasilService;
+    public AluguelService(TaxaService taxaService, Double precoPorHora, Double precoPorDia) {
+        this.taxaService = taxaService;
         this.precoPorHora = precoPorHora;
         this.precoPorDia = precoPorDia;
     }
@@ -29,7 +30,7 @@ public class AluguelService {
             pagamentoBasico = precoPorDia * Math.ceil(horas / 24);
         }
 
-        double taxa = taxaBrasilService.taxa(pagamentoBasico);
+        double taxa = taxaService.taxa(pagamentoBasico);
         aluguelCarro.setFatura(new Fatura(pagamentoBasico, taxa));
     }
 

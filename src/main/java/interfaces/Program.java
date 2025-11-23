@@ -45,9 +45,6 @@ public class Program {
             System.out.println("Imposto: " + String.format("%.2f", aluguelCarro.getFatura().getTaxa()));
             System.out.println("Pagamento total: " + String.format("%.2f", aluguelCarro.getFatura().getPagamentoTotal()));
 
-
-
-
         } catch (Exception e) {
             System.out.println("Ocorreu um erro ao executar o programa !" + e.getMessage());
             e.printStackTrace();

@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    kotlin("jvm")
 }
 
 group = "br.com.java-lab"
@@ -27,8 +28,12 @@ dependencies {
 
     // Runtime com Logback
     runtimeOnly("ch.qos.logback:logback-classic:$logbackVersion")
+    implementation(kotlin("stdlib-jdk8"))
 }
 
 tasks.test {
     useJUnitPlatform()
+}
+kotlin {
+    jvmToolchain(17)
 }

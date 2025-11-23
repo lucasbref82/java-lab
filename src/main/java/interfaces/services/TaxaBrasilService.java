@@ -1,6 +1,8 @@
 package interfaces.services;
 
-public class TaxaBrasilService {
+import interfaces.itf.TaxaService;
+
+public class TaxaBrasilService implements TaxaService {
 
     public double taxa(double quantidade) {
         if (quantidade <= 100) {
