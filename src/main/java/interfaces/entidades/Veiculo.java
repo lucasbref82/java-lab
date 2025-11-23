@@ -1,4 +1,4 @@
-package interfaces;
+package interfaces.entidades;
 
 import java.util.Objects;
 

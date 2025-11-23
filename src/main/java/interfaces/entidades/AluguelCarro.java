@@ -1,6 +1,5 @@
-package interfaces;
+package interfaces.entidades;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class AluguelCarro {
@@ -13,11 +12,10 @@ public class AluguelCarro {
     public AluguelCarro() {
     }
 
-    public AluguelCarro(LocalDateTime entrada, LocalDateTime saida, Veiculo veiculo, Fatura fatura) {
+    public AluguelCarro(LocalDateTime entrada, LocalDateTime saida, Veiculo veiculo) {
         this.entrada = entrada;
         this.saida = saida;
         this.veiculo = veiculo;
-        this.fatura = fatura;
     }
 
     public LocalDateTime getEntrada() {
