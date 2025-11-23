@@ -41,9 +41,9 @@ public class Program {
             aluguelService.processarFatura(aluguelCarro);
 
             System.out.println("FATURA: ");
-            System.out.println("Pagamento básico: " + aluguelCarro.getFatura().getPagamentoBasico());
-            System.out.println("Imposto: " + aluguelCarro.getFatura().getTaxa());
-            System.out.println("Pagamento total: " + aluguelCarro.getFatura().getPagamentoTotal());
+            System.out.println("Pagamento básico: " + String.format("%.2f", aluguelCarro.getFatura().getPagamentoBasico()));
+            System.out.println("Imposto: " + String.format("%.2f", aluguelCarro.getFatura().getTaxa()));
+            System.out.println("Pagamento total: " + String.format("%.2f", aluguelCarro.getFatura().getPagamentoTotal()));
 
 
 
