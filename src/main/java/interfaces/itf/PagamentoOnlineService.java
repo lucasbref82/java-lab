@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public interface PagamentoOnlineService {
 
-    BigDecimal taxaPagamento (BigDecimal taxa);
-    BigDecimal calculaJuros (BigDecimal quantidade, Integer meses);
+    BigDecimal taxaPagamento (BigDecimal valor);
+    BigDecimal calculaJuros (BigDecimal valor, Integer meses);
 
 }

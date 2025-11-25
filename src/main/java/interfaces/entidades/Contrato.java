@@ -2,7 +2,7 @@ package interfaces.entidades;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Contrato {
@@ -10,7 +10,7 @@ public class Contrato {
     private Integer numero;
     private LocalDate data;
     private BigDecimal valorContrato;
-    private List<Parcela> parcelas;
+    private List<Parcela> parcelas = new ArrayList<>();
 
     public Contrato() {
     }
