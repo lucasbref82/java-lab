@@ -25,7 +25,6 @@ public class LerArquivoBufferedReader {
             } catch (IOException e2) {
                 System.out.println("Erro no programa: " + e2.getMessage());
             }
-
         }
     }
 }
