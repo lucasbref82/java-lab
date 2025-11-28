@@ -1,8 +1,9 @@
 package interfaces.entidades;
 
 import interfaces.enums.Cor;
+import interfaces.itf.FormaItf;
 
-public abstract class FormaAbstrata {
+public abstract class FormaAbstrata implements FormaItf {
 
     private Cor cor;
 

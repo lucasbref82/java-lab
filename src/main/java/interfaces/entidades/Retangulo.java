@@ -7,7 +7,7 @@ public class Retangulo extends FormaAbstrata{
     private Double largura;
     private Double altura;
 
-    public Retangulo(Double largura, Double altura, Cor cor) {
+    public Retangulo(Cor cor, Double largura, Double altura) {
         super(cor);
         this.largura = largura;
         this.altura = altura;
@@ -29,4 +29,8 @@ public class Retangulo extends FormaAbstrata{
         this.altura = altura;
     }
 
+    @Override
+    public Double area() {
+        return 0.0;
+    }
 }

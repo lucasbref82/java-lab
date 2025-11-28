@@ -3,7 +3,7 @@ package interfaces.entidades;
 import interfaces.enums.Cor;
 import interfaces.itf.FormaItf;
 
-public class Circulo extends FormaAbstrata implements FormaItf {
+public class Circulo extends FormaAbstrata{
 
     private Double raio;
 
