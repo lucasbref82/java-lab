@@ -10,7 +10,7 @@ public class ProgramaPrint {
         try(Scanner scanner = new Scanner(System.in)) {
             System.out.print("Quantos números vão ser digitados? ");
             int n = scanner.nextInt();
-            PrintService printService = new PrintService();
+            PrintService<Integer> printService = new PrintService<>();
             for (int i = 0; i < n; i++) {
                 int numb = scanner.nextInt();
                 printService.add(numb);

@@ -4,19 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-public class PrintService {
+public class PrintService<Tipo> {
 
-    List<Integer> list;
+    List<Tipo> list;
 
     public PrintService() {
         this.list = new ArrayList<>();
     }
 
-    public void add(Integer integer) {
-        this.list.add(integer);
+    public void add(Tipo valor) {
+        this.list.add(valor);
     }
 
-    public Integer primeiro() {
+    public Tipo primeiro() {
         if (list.isEmpty()) {
             throw new NoSuchElementException("A lista está nula!");
         }
