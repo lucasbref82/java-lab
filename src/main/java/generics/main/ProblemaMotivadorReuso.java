@@ -8,12 +8,19 @@ public class ProblemaMotivadorReuso {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         PrintServiceMotivadorReuso printServiceMotivadorReuso = new PrintServiceMotivadorReuso();
-        System.out.print("Quantos valores ?");
+        System.out.print("Quantos valores? ");
         int n = scanner.nextInt();
         for (int i = 1; i <= n; i++) {
-            printServiceMotivadorReuso.adicionaValor(scanner.nextInt());
+            int valor = scanner.nextInt();
+            printServiceMotivadorReuso.adicionaValor(valor);
         }
-
+        printServiceMotivadorReuso.imprime();
+        try {
+            System.out.printf("Primeiro: %d", printServiceMotivadorReuso.primeiro());
+        } catch (IllegalAccessException e) {
+            System.out.println("Ocorreu um erro no programa: " + e.getMessage());
+            e.printStackTrace();
+        }
 
     }
 }
