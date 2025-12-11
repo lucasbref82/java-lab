@@ -21,6 +21,5 @@ public class ProblemaMotivadorReuso {
             System.out.println("Ocorreu um erro no programa: " + e.getMessage());
             e.printStackTrace();
         }
-
     }
 }
